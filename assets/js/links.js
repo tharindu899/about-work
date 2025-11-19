@@ -28,16 +28,16 @@ export const LINKS = {
       desc: "A sophisticated prediction tool for the Aviator game.",
       date: "Jan 2024",
       url: "https://tharindu899.github.io/aviator_predictor_Pro_1xbet/",
-      img: "https://images.unsplash.com/photo-1551650975-87deedd944c3",
+      img: "https://i.ibb.co/VcMKqMgZ/Screenshot-2025-11-19-15-58-15-369-com-android-chrome-edit.jpg",
       tech: ["JavaScript","CSS"]
     },
     {
-      id: "aviCopy",
-      title: "Avi Copy",
+      id: "aviator signal generator",
+      title: "Aviator Signal Generator",
       desc: "A replica of the popular Aviator game with smooth animations.",
       date: "Dec 2023",
       url: "https://tharindu899.github.io/avi-copy/",
-      img: "https://images.unsplash.com/photo-1531297484001-80022131f5a1",
+      img: "https://i.ibb.co/Kz65XhpR/Screenshot-2025-11-19-15-58-40-216-com-android-chrome-edit.jpg",
       tech: ["JavaScript","Canvas"]
     },
     {
@@ -46,7 +46,7 @@ export const LINKS = {
       desc: "Track your betting stats with a clean interface.",
       date: "Oct 2023",
       url: "https://tharindu899.github.io/Aviator-Betting-Tracker/",
-      img: "https://images.unsplash.com/photo-1551650975-87deedd944c3",
+      img: "https://i.ibb.co/ycDNykr5/Screenshot-2025-11-19-15-59-06-805-com-android-chrome-edit.jpg",
       tech: ["HTML","CSS","JavaScript"]
     }
   ]
