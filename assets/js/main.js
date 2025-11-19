@@ -11,7 +11,7 @@ const translations = {
     'nav-contact': 'Contact',
     'page-title': 'My Projects',
     'page-subtitle': 'A collection of my recent work and projects',
-    'footer-text': LINKS.site?.copyright
+    'footer-text': `${LINKS.site?.copyright} ${LINKS.site?.version}`
   },
   si: {
     'sidebar-name': 'තරින්දු',
@@ -20,7 +20,7 @@ const translations = {
     'nav-contact': 'සම්බන්ධ වන්න',
     'page-title': 'මගේ ව්‍යාපෘති',
     'page-subtitle': 'මගේ මෑත ව්‍යාපෘති',
-    'footer-text': LINKS.site?.copyright?.replace("Tharindu","තරින්දු")
+    'footer-text': `${LINKS.site?.copyright?.replace("Tharindu","තරින්දු")} ${LINKS.site?.version}`
   }
 };
 
