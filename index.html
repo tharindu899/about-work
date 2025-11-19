@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tharindu - Portfolio</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#10b981">
+  <link rel="icon" href="assets/icons/icon-192.png" sizes="192x192">
+  <link rel="icon" href="assets/icons/icon-512.png" sizes="512x512">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+</head>
+<body>
+  <!-- floating language switcherv1 -->
+  <div class="language-switcher" id="langBox" aria-label="Language switcher">
+    <button class="lang-btn active" id="langEn">EN</button>
+    <button class="lang-btn" id="langSi">සිං</button>
+  </div>
+
+  <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+  <div class="overlay" id="overlay"></div>
+
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <div class="sidebar-avatar">
+        <img src="assets/icons/profile.jpg" alt="Profile" class="avatar-img">
+      </div>
+    
+      <h2 class="sidebar-name" id="sidebar-name">Tharindu</h2>
+      <p class="sidebar-tagline" id="sidebar-tagline">Web Developer & Designer</p>
+    </div>
+    
+    <nav class="sidebar-nav">
+      <a href="index.html" class="nav-item active"><i class="fas fa-folder-open"></i><span id="nav-projects">Projects</span></a>
+      <a href="contact.html" class="nav-item"><i class="fas fa-paper-plane"></i><span id="nav-contact">Contact</span></a>
+    </nav>
+  </aside>
+
+  <main class="main-content">
+    <div class="page-header">
+      <h1 class="page-title" id="page-title">My Projects</h1>
+      <p class="page-subtitle" id="page-subtitle">A collection of my recent work and projects</p>
+    </div>
+
+    <!-- projects grid is built dynamically -->
+    <div class="projects-grid" id="projectsGrid"></div>
+
+    <footer><p id="footer-text">© 2025 Tharindu. All rights reserved.</p></footer>
+  </main>
+
+  <!-- app scripts (ES modules) -->
+  <script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
