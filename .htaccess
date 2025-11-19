@@ -1,0 +1,19 @@
+# Enable mod_headers (only runs if available)
+<IfModule mod_headers.c>
+
+    # Disable caching for HTML, JS, and CSS files
+    <FilesMatch "\.(html|htm|js|css)$">
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
+    </FilesMatch>
+
+</IfModule>
+
+# Optional: Ensure latest file versions load by adding version query support
+<IfModule mod_expires.c>
+    ExpiresActive On
+</IfModule>
+
+# Optional: Block directory listing
+Options -Indexes
