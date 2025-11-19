@@ -1,19 +1,72 @@
-# Enable mod_headers (only runs if available)
+# ============================================
+# COMPLETE NO-CACHE CONFIGURATION
+# ============================================
+
+# Enable mod_headers
 <IfModule mod_headers.c>
-
-    # Disable caching for HTML, JS, and CSS files
-    <FilesMatch "\.(html|htm|js|css)$">
-        Header set Cache-Control "no-cache, no-store, must-revalidate"
-        Header set Pragma "no-cache"
-        Header set Expires "0"
-    </FilesMatch>
-
+    # Force no-cache for ALL files globally
+    Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+    
+    # Remove ETag and Last-Modified headers completely
+    Header unset ETag
+    Header unset Last-Modified
+    
+    # Prevent proxy caching
+    Header set X-Cache-Control "no-cache, no-store, must-revalidate"
+    
+    # Prevent browser from storing pages in history
+    Header set X-UA-Compatible "IE=Edge"
 </IfModule>
 
-# Optional: Ensure latest file versions load by adding version query support
+# Disable ETag completely
+FileETag None
+
+# Disable all caching via mod_expires
 <IfModule mod_expires.c>
-    ExpiresActive On
+    ExpiresActive Off
 </IfModule>
 
-# Optional: Block directory listing
+# Block directory listing for security
 Options -Indexes
+
+# Specific rules for web files
+<FilesMatch "\.(html|htm|js|css|json|txt|xml|jpg|jpeg|png|gif|svg|ico|webp|woff|woff2|ttf|eot)$">
+    <IfModule mod_headers.c>
+        Header set Cache-Control "no-store, no-cache, must-revalidate, max-age=0, post-check=0, pre-check=0"
+        Header set Pragma "no-cache"
+        Header set Expires "Thu, 01 Jan 1970 00:00:00 GMT"
+        Header unset ETag
+        Header unset Last-Modified
+    </IfModule>
+</FilesMatch>
+
+# Automatic timestamp appending for cache busting
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Add timestamp to CSS and JS files if not already present
+    RewriteCond %{QUERY_STRING} !v=
+    RewriteCond %{REQUEST_FILENAME} \.(css|js)$
+    RewriteRule ^(.*)$ $1?v=%{TIME} [L,QSA]
+    
+    # Prevent caching of HTML files
+    RewriteCond %{REQUEST_FILENAME} \.(html|htm)$
+    RewriteRule . - [E=no-cache:1]
+    Header always set Cache-Control "no-store, no-cache, must-revalidate, max-age=0" env=no-cache
+</IfModule>
+
+# Additional security headers
+<IfModule mod_headers.c>
+    # Prevent MIME type sniffing
+    Header set X-Content-Type-Options "nosniff"
+    
+    # Enable XSS protection
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Force download for certain file types (optional)
+# <FilesMatch "\.(pdf|zip|rar|exe)$">
+#     Header set Content-Disposition "attachment"
+# </FilesMatch>
