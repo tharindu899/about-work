@@ -11,7 +11,7 @@ const translations = {
     'nav-contact': 'Contact',
     'page-title': 'My Projects',
     'page-subtitle': 'A collection of my recent work and projects',
-    'footer-text': `${LINKS.site?.copyright || '© 2025 Tharindu. All rights reserved.'} ${LINKS.site?.version || ''}`
+    'footer-text': LINKS.site?.copyright
   },
   si: {
     'sidebar-name': 'තරින්දු',
@@ -20,7 +20,7 @@ const translations = {
     'nav-contact': 'සම්බන්ධ වන්න',
     'page-title': 'මගේ ව්‍යාපෘති',
     'page-subtitle': 'මගේ මෑත ව්‍යාපෘති',
-    'footer-text': `${(LINKS.site?.copyright || '© 2025 Tharindu. All rights reserved.').replace("Tharindu","තරින්දු")} ${LINKS.site?.version || ''}`
+    'footer-text': LINKS.site?.copyright?.replace("Tharindu","තරින්දු")
   }
 };
 
@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
     buildContacts();
   }
 
-  // Register service worker
   if ('serviceWorker' in navigator) {
     navigator.serviceWorker.register('./sw.js')
       .then(reg => console.log('SW registered', reg))
