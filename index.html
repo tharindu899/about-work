@@ -4,15 +4,38 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Tharindu - Portfolio</title>
+  
+  <!-- Prevent caching -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+  
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#10b981">
   <link rel="icon" href="assets/icons/icon-192.png" sizes="192x192">
   <link rel="icon" href="assets/icons/icon-512.png" sizes="512x512">
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
 </head>
 <body>
-  <!-- floating language switcherv1 -->
+  <script>
+    // Unregister all service workers
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for(let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+    
+    // Clear all caches
+    if ('caches' in window) {
+      caches.keys().then(function(names) {
+        for (let name of names) caches.delete(name);
+      });
+    }
+  </script>
+
+  <!-- floating language switcher -->
   <div class="language-switcher" id="langBox" aria-label="Language switcher">
     <button class="lang-btn active" id="langEn">EN</button>
     <button class="lang-btn" id="langSi">සිං</button>
