@@ -2,7 +2,7 @@ export const LINKS = {
   site: {
     author: "Tharindu",
     copyright: "© 2025 Tharindu. All rights reserved.",
-    version: "v1.0.1"
+    version: "v1.0.2"
   },
   social: {
     facebook: "https://www.facebook.com/share/17UvLjL5Xs/",
